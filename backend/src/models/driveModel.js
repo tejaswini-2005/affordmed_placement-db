@@ -2,25 +2,39 @@ import mongoose from "mongoose";
 
 const driveSchema = new mongoose.Schema(
   {
-    driveId: { 
-        type: String, 
-        required: true, 
-        unique: true, 
-        trim: true },
-    companyId: { 
-        type: String, 
-        required: true, 
-        trim: true },
-    role: { 
-        type: String, 
-        required: true, 
-        trim: true },
-    driveDate: { 
-        type: Date, 
-        required: true },
-    packageLpa: { 
-        type: Number, 
-        required: true }
+    driveId: { type: String, required: true, unique: true, trim: true },
+
+    company: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Company",
+      required: true
+    },
+
+    title: { type: String, required: true, trim: true },
+
+    mode: {
+      type: String,
+      enum: ["online", "offline", "hybrid"],
+      required: true
+    },
+
+    location: { type: String, required: true, trim: true },
+
+    registrationDeadline: {
+      type: Date,
+      required: true
+    },
+
+    rounds: {
+      type: [String],
+      default: []
+    },
+
+    status: {
+      type: String,
+      enum: ["open", "closed", "completed", "cancelled"],
+      default: "open"
+    }
   },
   { timestamps: true }
 );
