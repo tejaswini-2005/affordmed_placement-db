@@ -10,26 +10,13 @@ const interviewSchema = new mongoose.Schema(
       required: true
     },
 
-    interviewer: {
-      type: String,
-      required: true,
-      trim: true
-    },
-
-    round: {
-      type: String,
-      required: true,
-      trim: true
-    },
-
-    scheduledAt: {
-      type: Date,
-      required: true
-    },
+    interviewer: { type: String, required: true, trim: true },
+    round: { type: String, required: true, trim: true },
+    scheduledAt: { type: Date, required: true },
 
     result: {
       type: String,
-      enum: ["pending", "passed", "failed", "selected", "rejected"],
+      enum: ["pending", "pass", "fail"],
       default: "pending"
     }
   },
