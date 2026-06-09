@@ -7,6 +7,8 @@ import Students from "../pages/Students.jsx";
 import Companies from "../pages/Companies.jsx";
 import Drives from "../pages/Drives.jsx";
 import Applications from "../pages/Application.jsx";
+import Interviews from "../pages/Interviews.jsx";
+import Analytics from "../pages/Analytics.jsx";
 
 const ProtectedRoute = ({ children }) => {
   const { token } = useAuth();
@@ -25,6 +27,8 @@ const Layout = ({ children }) => {
         <Link to="/students">Students</Link> |{" "}
         <Link to="/companies">Companies</Link> |{" "}
         <Link to="/drives">Drives</Link> |{" "}
+        <Link to="/interviews">Interviews</Link> |{" "}
+        <Link to="/analytics">Analytics</Link> |{" "} 
         <Link to="/applications">Applications</Link>
       </nav>
 
@@ -92,6 +96,28 @@ export default function AppRouter() {
           <ProtectedRoute>
             <Layout>
               <Applications />
+            </Layout>
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/interviews"
+        element={
+          <ProtectedRoute>
+            <Layout>
+              <Interviews />
+            </Layout>
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/analytics"
+        element={
+          <ProtectedRoute>
+            <Layout>
+              <Analytics />
             </Layout>
           </ProtectedRoute>
         }

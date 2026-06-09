@@ -4,7 +4,7 @@ import {
   getPlacementAnalytics,
   getDepartmentAnalytics,
   getCompanyAnalytics
-} from "../controllers/analyticsController.js";
+} from "../controllers/analyticsControllers.js";
 
 import { protect, authorizeRoles } from "../middleware/authMiddleware.js";
 
